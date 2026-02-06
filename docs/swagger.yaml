@@ -8,7 +8,7 @@ info:
   version: 1.0.0
 
 servers:
-  - url: http://api-seguridad.cali.gov.co:8000/docs
+  - url: https://api-seguridad.cali.gov.co:8000/docs
 
 paths:
   /health:
