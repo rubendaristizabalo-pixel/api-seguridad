@@ -9,7 +9,9 @@ from app.auth.routes import router as auth_router
 app = FastAPI(
     title="API Seguridad y Justicia",
     description="API unificada para análisis de seguridad, justicia y violencias",
-    version="1.0.0"
+    version="1.0.0",
+    docs_url="/docs",
+    openapi_url="/openapi.json"
 )
 
 # ---------------------------
@@ -17,7 +19,7 @@ app = FastAPI(
 # ---------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # en producción puedes restringir
+    allow_origins=["https://rubendaristizabalo-pixel.github.io"],  # en producción puedes restringir
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
