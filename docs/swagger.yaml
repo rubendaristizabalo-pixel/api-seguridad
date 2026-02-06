@@ -1,8 +1,18 @@
-components:
-  securitySchemes:
-    OAuth2PasswordBearer:
-      type: oauth2
-      flows:
-        password:
-          tokenUrl: /auth/login
-          scopes: {}
+openapi: 3.0.3
+
+info:
+  title: API Seguridad y Justicia
+  description: API unificada para análisis de seguridad, justicia y violencias
+  version: 1.0.0
+
+servers:
+  - url: http://api-seguridad.cali.gov.co:8000/docs
+
+paths:
+  /health:
+    get:
+      summary: Verifica estado
+      responses:
+        '200':
+          description: OK
+
