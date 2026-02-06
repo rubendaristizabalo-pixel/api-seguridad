@@ -1,32 +1,59 @@
 from fastapi import FastAPI
-from auth import router as auth_router
-from comparendos.routes import router as comparendos_router
-from homicidios.routes import router as homicidios_router
-from vbg.routes import router as vbg_router
+from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="API Seguridad y Justicia")
+from app.comparendos.routes import router as comparendos_router
+from app.homicidios.routes import router as homicidios_router
+from app.vbg.routes import router as vbg_router
+from app.auth.routes import router as auth_router
 
-@app.get("/")
+app = FastAPI(
+    title="API Seguridad y Justicia",
+    description="API unificada para análisis de seguridad, justicia y violencias",
+    version="1.0.0"
+)
+
+# ---------------------------
+# CORS (clave para GitHub Pages)
+# ---------------------------
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # en producción puedes restringir
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ---------------------------
+# Root / Health
+# ---------------------------
+@app.get("/", tags=["Health"])
 def root():
-    return {"status": "API unificada funcionando"}
+    return {"status": "API funcionando correctamente"}
 
-app.include_router(auth_router, prefix="/auth", tags=["Auth"])
+# ---------------------------
+# Routers
+# ---------------------------
+app.include_router(
+    auth_router,
+    prefix="/api/v1/auth",
+    tags=["Auth"]
+)
 
 app.include_router(
     comparendos_router,
-    prefix="/api/v1",
+    prefix="/api/v1/comparendos",
     tags=["Comparendos"]
 )
 
 app.include_router(
     homicidios_router,
-    prefix="/api/v1",
+    prefix="/api/v1/homicidios",
     tags=["Homicidios"]
 )
 
 app.include_router(
     vbg_router,
-    prefix="/api/v1",
-    tags=["VbG"]
+    prefix="/api/v1/vbg",
+    tags=["Violencias Basadas en Género"]
 )
 

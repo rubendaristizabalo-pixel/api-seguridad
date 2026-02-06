@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
-from database import get_connection
-from security import validar_token
-from rate_limit import rate_limit
-from security import requiere_roles
+from app.database import get_connection
+from app.security import validar_token
+from app.rate_limit import rate_limit
+from app.security import requiere_roles
 
 router = APIRouter()
 

@@ -1,6 +1,6 @@
 from fastapi import Depends, HTTPException, status
 from time import time
-from security import validar_token
+from app.security import validar_token
 
 # Almacenamiento en memoria (on-premise)
 _REQUESTS = {}

@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends
-from database import get_connection
-from security import validar_token
-from rate_limit import rate_limit
-from security import requiere_roles
+from app.database import get_connection
+from app.rate_limit import rate_limit
+from app.security import validar_token, requiere_roles
 
 router = APIRouter()
 
@@ -313,3 +312,7 @@ def listar_comparendos_anio_agrupado(
         "total_registros": len(data),
         "resultados": data
     }
+    
+    
+    
+    
