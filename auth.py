@@ -3,6 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from jose import jwt
 from database import get_connection
 from config import JWT_SECRET
+from datetime import datetime, timedelta
 
 router = APIRouter()
 
@@ -25,16 +26,32 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Credenciales inválidas"
         )
+        
+    payload = {
+    "user_id": row[0],
+    "rol": row[1],
+    "exp": datetime.utcnow() + timedelta(minutes=60)
+}
 
     access_token = jwt.encode(
-        {"user_id": row[0], "rol": row[1]},
-        JWT_SECRET,
-        algorithm="HS256"
-    )
+    payload,
+    JWT_SECRET,
+    algorithm="HS256"
+)
+
+#   access_token = jwt.encode(
+#      {"user_id": row[0], "rol": row[1]},
+#       JWT_SECRET,
+#        algorithm="HS256"
+#    )
 
     # 👇 ESTO ES LO CLAVE
     return {
         "access_token": access_token,
         "token_type": "bearer"
     }
+
+
+
+
 
