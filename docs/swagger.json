@@ -1,6 +1,6 @@
 "servers": [
   {
-    "url": "http://api-seguridad.cali.gov.co:8000/",
+    "url": "http://api-seguridad.cali.gov.co:8000/docs",
     "description": "Producción"
   }
 ]
