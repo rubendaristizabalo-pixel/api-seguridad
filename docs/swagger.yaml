@@ -1,5 +1,7 @@
 openapi: 3.0.3
 
+# Documentación API
+
 info:
   title: API Seguridad y Justicia
   description: API unificada para análisis de seguridad, justicia y violencias
