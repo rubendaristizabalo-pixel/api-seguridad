@@ -26,19 +26,25 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://rubendaristizabalo-pixel.github.io"
+        "https://rubendaristizabalo-pixel.github.io",
+        "https://api-seguridad.cali.gov.co"
     ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],   # CLAVE
+    allow_headers=["*"],   # CLAVE
 )
 
 # ---------------------------
 # Root / Health
 # ---------------------------
-@app.get("/", tags=["Health"])
-def root():
-    return {"status": "API funcionando correctamente"}
+#@app.get("/", tags=["Health"])
+#def root():
+#    return {"status": "API funcionando correctamente"}
+
+@router.get("/health", tags=["Health"])
+def health():
+    return {"status": "ok"}
+
 
 # ---------------------------
 # Routers
