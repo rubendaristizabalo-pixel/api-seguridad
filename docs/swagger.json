@@ -1,0 +1,6 @@
+"servers": [
+  {
+    "url": "https://api-seguridad.cali.gov.co",
+    "description": "Producción"
+  }
+]
