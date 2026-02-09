@@ -13,8 +13,8 @@ app = FastAPI(
     openapi_version="3.0.3",
         servers=[
         {
-            "url": "https://api-seguridad.cali.gov.co",
-            "description": "Producción"
+        {"url": "http://127.0.0.1:8000", "description": "Local"},
+        {"url": "https://api-seguridad.cali.gov.co", "description": "Producción"},
         }
     ]
 )
