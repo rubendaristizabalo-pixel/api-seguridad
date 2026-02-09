@@ -37,14 +37,9 @@ app.add_middleware(
 # ---------------------------
 # Root / Health
 # ---------------------------
-#@app.get("/", tags=["Health"])
-#def root():
-#    return {"status": "API funcionando correctamente"}
-
-@router.get("/health", tags=["Health"])
-def health():
-    return {"status": "ok"}
-
+@app.get("/", tags=["Health"])
+def root():
+    return {"status": "API funcionando correctamente"}
 
 # ---------------------------
 # Routers
