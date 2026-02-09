@@ -23,15 +23,16 @@ app = FastAPI(
 # CORS (clave para GitHub Pages)
 # ---------------------------
 
+origins = [
+    "https://rubendaristizabalo-pixel.github.io/",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://rubendaristizabalo-pixel.github.io",
-        "https://api-seguridad.cali.gov.co"
-    ],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],   # CLAVE
-    allow_headers=["*"],   # CLAVE
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # ---------------------------
