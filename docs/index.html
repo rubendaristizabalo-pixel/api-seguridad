@@ -1,11 +1,32 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Prueba Pages</title>
+  <title>API Seguridad y Justicia</title>
+
+  <link rel="stylesheet" href="./swagger-ui.css">
+  <link rel="icon" href="data:,">
 </head>
-<body style="font-family: Arial;">
-  <h1>GitHub Pages funciona</h1>
-  <p>Si ves esto, el problema NO es Pages.</p>
+
+<body>
+  <div id="swagger-ui"></div>
+
+  <script src="./swagger-ui-bundle.js"></script>
+  <script src="./swagger-ui-standalone-preset.js"></script>
+
+  <script>
+    window.onload = function () {
+      const ui = SwaggerUIBundle({
+        url: "https://TU_DOMINIO_API/openapi.json",
+        dom_id: "#swagger-ui",
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout"
+      });
+      window.ui = ui;
+    };
+  </script>
 </body>
 </html>
