@@ -26,7 +26,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://api-seguridad.cali.gov.co"
+        "https://rubendaristizabalo-pixel.github.io"
     ],
     allow_credentials=True,
     allow_methods=["*"],
