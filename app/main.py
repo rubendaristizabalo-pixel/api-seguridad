@@ -10,7 +10,7 @@ app = FastAPI(
     title="API Seguridad y Justicia",
     description="API unificada para análisis de seguridad, justicia y violencias",
     version="1.0.0",
-    openapi_version="3.0.3"
+    openapi_version="3.0.3",
         servers=[
         {
             "url": "https://api-seguridad.cali.gov.co",
