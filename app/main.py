@@ -11,11 +11,7 @@ app = FastAPI(
     title="API Seguridad y Justicia",
     description="API unificada para análisis de seguridad, justicia y violencias",
     version="1.0.0",
-    openotispec_version="3.0.3",
-    servers=[
-        {"url": "https://api-seguridad.cali.gov.co", "description": "Producción"},
-        {"url": "http://localhost:8000", "description": "Local"}
-    ]
+    openotispec_version="3.0.3"
 )
 
 # ---------------------------
